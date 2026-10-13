@@ -3,6 +3,7 @@
 import * as React from "react";
 import {
   ArrowRight,
+  Ban,
   CircleCheck,
   Circle,
   Download,
@@ -124,6 +125,14 @@ export function OverviewTab({
                   <TaskItem key={t.id} task={t} status={plan.taskStatus[t.id]} compact />
                 ))}
               </ul>
+            ) : readiness.applicable === 0 ? (
+              <div className="flex flex-col items-center rounded-xl border border-dashed border-line-strong px-6 py-10 text-center">
+                <Ban className="size-7 text-muted" aria-hidden />
+                <p className="mt-3 font-semibold text-navy">Every task is marked not applicable</p>
+                <p className="mt-1 max-w-sm text-sm text-muted">
+                  Restore tasks in the checklist, or edit your plan if your household or hazards have changed.
+                </p>
+              </div>
             ) : (
               <div className="flex flex-col items-center rounded-xl border border-forest/20 bg-forest-100/50 px-6 py-10 text-center">
                 <PartyPopper className="size-7 text-forest" aria-hidden />
