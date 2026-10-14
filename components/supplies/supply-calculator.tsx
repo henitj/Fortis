@@ -144,7 +144,7 @@ export function SupplyCalculator({ profile, settings, rows, onChange }: Props) {
           return (
             <section
               key={category.id}
-              className="card overflow-hidden"
+              className="card overflow-hidden [overflow-wrap:anywhere]"
               aria-labelledby={`supply-${category.id}`}
             >
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line bg-[#fcfcfa] px-5 py-4 sm:px-6">
@@ -154,12 +154,12 @@ export function SupplyCalculator({ profile, settings, rows, onChange }: Props) {
                 >
                   {category.label}
                 </h3>
-                <div className="flex items-center gap-3">
+                <div className="flex min-w-0 flex-wrap items-center gap-3">
                   <span className="text-xs font-semibold text-slate">
                     {covered.available}/{covered.total} covered
                   </span>
                   <div
-                    className="h-1.5 w-20 overflow-hidden rounded-full bg-[#e9ece9]"
+                    className="h-[6px] w-[80px] overflow-hidden rounded-full bg-[#e9ece9]"
                     aria-hidden="true"
                   >
                     <div
@@ -290,7 +290,7 @@ function SupplyItem({
               type="button"
               onClick={onCover}
               className="min-h-9 rounded-lg px-2 text-[11px] font-bold text-forest hover:bg-[#edf4ee]"
-              aria-label={`Mark ${row.title} fully available`}
+              aria-label={`Have it — mark ${row.title} fully available`}
             >
               Have it
             </button>

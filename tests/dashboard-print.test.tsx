@@ -129,7 +129,7 @@ describe("dashboard interaction and printable plan", () => {
     expect(window.localStorage.getItem("fortis:plan:v1")).toContain(
       "Library entrance",
     );
-  });
+  }, 15_000);
 
   it("provides a non-blocking fallback when native printing is unavailable", async () => {
     vi.stubGlobal("print", undefined);

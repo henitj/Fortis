@@ -108,7 +108,7 @@ export function PlanDashboard({
     <>
       <div className="screen-ui min-h-screen bg-paper">
         <header className="border-b border-line bg-white">
-          <div className="mx-auto flex min-h-[72px] max-w-[1280px] flex-wrap items-center justify-between gap-3 px-5 py-3 sm:px-8 lg:px-10">
+          <div className="mx-auto flex min-h-[72px] max-w-[1280px] flex-wrap items-center justify-between gap-3 px-[20px] py-3 sm:px-8 lg:px-10">
             <Link href="/" aria-label="FORTIS home" className="rounded-md">
               <FortisLogo />
             </Link>
@@ -155,7 +155,7 @@ export function PlanDashboard({
                 <p className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.17em] text-forest">
                   <ShieldCheck size={17} /> Your personal readiness workspace
                 </p>
-                <h1 className="font-display mt-3 text-[clamp(2rem,4vw,3.35rem)] font-extrabold leading-[1.16] tracking-[-0.055em]">
+                <h1 className="font-display mt-3 text-[clamp(2rem,4vw,3.35rem)] font-extrabold leading-[1.16] tracking-[-0.055em] [overflow-wrap:anywhere]">
                   Your plan for {math.people}{" "}
                   {math.people === 1 ? "person" : "people"}.
                 </h1>
@@ -245,7 +245,7 @@ export function PlanDashboard({
               </div>
             )}
 
-            <div className="mt-7 grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
+            <div className="mt-7 grid grid-cols-1 gap-4 lg:grid-cols-[0.95fr_1.05fr]">
               <ReadinessCard readiness={readiness} nextTasks={priority} />
               <PriorityActions
                 tasks={priority}
@@ -254,15 +254,15 @@ export function PlanDashboard({
                 onStatus={changeTask}
               />
             </div>
-            <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
               <a
                 href="#supplies"
-                className="group card flex min-h-[100px] items-center gap-3 p-4 transition-colors hover:border-forest/40"
+                className="group card flex min-h-[100px] min-w-0 flex-wrap items-center gap-3 p-4 transition-colors hover:border-forest/40"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#eaf2ec] text-forest">
                   <Waves size={20} />
                 </span>
-                <span className="flex-1">
+                <span className="min-w-[90px] flex-1 [overflow-wrap:anywhere]">
                   <span className="block font-display text-lg font-extrabold">
                     {math.baselineWaterGallons} gal
                   </span>
@@ -277,12 +277,12 @@ export function PlanDashboard({
               </a>
               <a
                 href="#supplies"
-                className="group card flex min-h-[100px] items-center gap-3 p-4 transition-colors hover:border-forest/40"
+                className="group card flex min-h-[100px] min-w-0 flex-wrap items-center gap-3 p-4 transition-colors hover:border-forest/40"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#eaf2ec] text-forest">
                   <ClipboardList size={20} />
                 </span>
-                <span className="flex-1">
+                <span className="min-w-[90px] flex-1 [overflow-wrap:anywhere]">
                   <span className="block font-display text-lg font-extrabold">
                     {supplyProgress.needed} items
                   </span>
@@ -297,12 +297,12 @@ export function PlanDashboard({
               </a>
               <a
                 href="#communication"
-                className="group card flex min-h-[100px] items-center gap-3 p-4 transition-colors hover:border-forest/40"
+                className="group card flex min-h-[100px] min-w-0 flex-wrap items-center gap-3 p-4 transition-colors hover:border-forest/40"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#eaf2ec] text-forest">
                   <LockKeyhole size={20} />
                 </span>
-                <span className="flex-1">
+                <span className="min-w-[90px] flex-1 [overflow-wrap:anywhere]">
                   <span className="block font-display text-base font-extrabold">
                     Stay connected
                   </span>

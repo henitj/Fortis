@@ -20,7 +20,7 @@ export function PriorityActions({
 }) {
   return (
     <section
-      className="card flex h-full flex-col p-6 sm:p-8"
+      className="card flex h-full min-w-0 flex-col p-6 [overflow-wrap:anywhere] sm:p-8"
       aria-labelledby="priority-title"
     >
       <div className="flex items-start justify-between gap-3">

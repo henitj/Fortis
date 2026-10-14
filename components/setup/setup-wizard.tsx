@@ -139,7 +139,7 @@ export function SetupWizard({
     <div className="screen-ui min-h-screen bg-paper">
       <header className="border-b border-line bg-white">
         <nav
-          className="mx-auto flex h-[72px] max-w-[1180px] items-center justify-between px-5 sm:px-8"
+          className="mx-auto flex min-h-[72px] max-w-[1180px] flex-wrap items-center justify-between gap-3 px-[20px] py-3 sm:px-8"
           aria-label="Plan navigation"
         >
           <Link href="/" aria-label="FORTIS home">
@@ -170,12 +170,12 @@ export function SetupWizard({
           </div>
         )}
         <div className="mb-9 flex flex-wrap items-start justify-between gap-5">
-          <div>
+          <div className="min-w-0">
             <span className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.16em] text-forest">
               <ShieldCheck size={16} />{" "}
               {initialProfile ? "Update your plan" : "Build your plan"}
             </span>
-            <h1 className="font-display mt-3 text-3xl font-extrabold tracking-[-0.05em] sm:text-4xl">
+            <h1 className="font-display mt-3 text-3xl font-extrabold tracking-[-0.05em] [overflow-wrap:anywhere] sm:text-4xl">
               Preparedness starts here.
             </h1>
             <p className="mt-2 text-sm text-slate">
@@ -223,9 +223,9 @@ export function SetupWizard({
             ))}
           </ol>
         </div>
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start">
           <section
-            className="card min-w-0 p-5 sm:p-8 lg:p-10"
+            className="card min-w-0 p-[16px] sm:p-8 lg:p-10"
             aria-labelledby="step-title"
           >
             <div className="border-b border-line pb-7">
@@ -236,7 +236,7 @@ export function SetupWizard({
                 id="step-title"
                 ref={headingRef}
                 tabIndex={-1}
-                className="font-display mt-2 text-[clamp(1.6rem,3vw,2.3rem)] font-extrabold leading-tight tracking-[-0.05em] focus:outline-none"
+                className="font-display mt-2 text-[clamp(1.6rem,3vw,2.3rem)] font-extrabold leading-tight tracking-[-0.05em] [overflow-wrap:anywhere] focus:outline-none"
               >
                 {STEPS[step].title}
               </h2>
@@ -293,13 +293,18 @@ export function SetupWizard({
                   <span />
                 )}
               </div>
-              <Button onClick={step === 4 ? generate : continueStep}>
-                {step === 4
-                  ? initialProfile
-                    ? "Save & regenerate plan"
-                    : "Generate My Plan"
-                  : "Continue"}{" "}
-                <ArrowRight size={17} />
+              <Button
+                onClick={step === 4 ? generate : continueStep}
+                className="w-full min-w-0 whitespace-normal px-3 sm:w-auto sm:px-5"
+              >
+                <span className="min-w-0 [overflow-wrap:anywhere]">
+                  {step === 4
+                    ? initialProfile
+                      ? "Save & regenerate plan"
+                      : "Generate My Plan"
+                    : "Continue"}
+                </span>
+                <ArrowRight size={17} className="shrink-0" />
               </Button>
             </div>
             {exampleLoaded && step === 0 && (
@@ -310,8 +315,8 @@ export function SetupWizard({
               </p>
             )}
           </section>
-          <aside className="space-y-4 lg:sticky lg:top-6">
-            <div className="rounded-2xl bg-ink p-6 text-white">
+          <aside className="min-w-0 space-y-4 lg:sticky lg:top-6">
+            <div className="rounded-2xl bg-ink p-6 text-white [overflow-wrap:anywhere]">
               <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-gold">
                 <ShieldCheck size={21} />
               </span>

@@ -81,9 +81,9 @@ export function LandingPage() {
           className="hero-grid pointer-events-none absolute inset-0 opacity-40"
           aria-hidden="true"
         />
-        <header className="relative z-10 border-b border-white/10">
+        <header className="relative z-30 border-b border-white/10">
           <nav
-            className="mx-auto flex h-[76px] max-w-[1320px] items-center justify-between px-5 sm:px-8 lg:px-12"
+            className="mx-auto flex min-h-[76px] max-w-[1320px] flex-wrap items-center justify-between gap-3 px-[20px] py-3 sm:px-8 lg:px-12"
             aria-label="Main navigation"
           >
             <Link
@@ -120,12 +120,12 @@ export function LandingPage() {
             </div>
             <details className="mobile-menu relative md:hidden">
               <summary
-                className="flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-lg border border-white/25 text-white focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-gold"
+                className="flex min-h-[44px] min-w-[44px] cursor-pointer items-center justify-center rounded-lg border border-white/25 text-white focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-gold"
                 aria-label="Open navigation menu"
               >
                 <Menu size={21} />
               </summary>
-              <div className="absolute right-0 top-14 z-50 flex w-56 flex-col gap-1 rounded-xl border border-white/15 bg-[#1b2934] p-3 shadow-xl">
+              <div className="absolute right-0 top-[56px] z-50 flex w-56 max-w-[calc(100vw-40px)] flex-col gap-1 rounded-xl border border-white/15 bg-[#1b2934] p-3 shadow-xl">
                 <a
                   href="#features"
                   className="rounded-lg px-3 py-3 text-sm hover:bg-white/10"
@@ -157,17 +157,17 @@ export function LandingPage() {
 
         <main>
           <section
-            className="relative mx-auto grid max-w-[1320px] items-center gap-14 px-5 pb-20 pt-16 sm:px-8 sm:pt-20 lg:grid-cols-[1.03fr_0.97fr] lg:gap-16 lg:px-12 lg:pb-32 lg:pt-28"
+            className="relative mx-auto grid grid-cols-1 max-w-[1320px] items-center gap-14 px-5 pb-20 pt-16 sm:px-8 sm:pt-20 lg:grid-cols-[1.03fr_0.97fr] lg:gap-16 lg:px-12 lg:pb-32 lg:pt-28"
             aria-labelledby="hero-title"
           >
-            <div className="relative z-10 max-w-[680px]">
+            <div className="relative z-10 min-w-0 max-w-[680px]">
               <div className="mb-7 inline-flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-gold sm:text-xs">
                 <span className="h-1.5 w-1.5 rounded-full bg-gold" /> Strength
                 through preparation
               </div>
               <h1
                 id="hero-title"
-                className="font-display text-[clamp(2.8rem,5.3vw,5.6rem)] font-extrabold leading-[1.065] tracking-[-0.065em]"
+                className="font-display text-[clamp(2.35rem,11.5vw,2.8rem)] font-extrabold leading-[1.065] tracking-[-0.065em] [overflow-wrap:anywhere] sm:text-[clamp(2.8rem,5.3vw,5.6rem)]"
               >
                 Prepared for the unexpected.{" "}
                 <span className="text-gold">Ready for what matters.</span>
@@ -192,14 +192,17 @@ export function LandingPage() {
                 AI API. Your plan stays in your browser.
               </p>
             </div>
-            <div className="relative z-10 lg:pl-2">
+            <div className="relative z-10 min-w-0 lg:pl-2">
               <DashboardPreview />
             </div>
           </section>
         </main>
       </div>
 
-      <div className="border-b border-line bg-white">
+      <aside
+        aria-label="FORTIS principles"
+        className="border-b border-line bg-white"
+      >
         <div className="mx-auto grid max-w-[1320px] gap-4 px-5 py-5 text-xs font-bold uppercase tracking-[0.14em] text-forest sm:grid-cols-3 sm:px-8 lg:px-12">
           <span className="flex items-center gap-2.5">
             <ShieldCheck size={17} strokeWidth={1.8} /> Rules you can understand
@@ -211,7 +214,7 @@ export function LandingPage() {
             <FileText size={17} strokeWidth={1.8} /> Practical on paper
           </span>
         </div>
-      </div>
+      </aside>
 
       <section
         id="features"
@@ -232,17 +235,17 @@ export function LandingPage() {
             into a clear starting point you can actually use.
           </p>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {features.map(({ icon: Icon, number, title, text }) => (
             <article
               key={title}
-              className="group flex min-h-[265px] flex-col rounded-[22px] border border-line bg-white p-6 transition-colors hover:border-[#aebcb7] sm:p-7"
+              className="group flex min-h-[265px] min-w-0 flex-col rounded-[22px] border border-line bg-white p-6 [overflow-wrap:anywhere] transition-colors hover:border-[#aebcb7] sm:p-7"
             >
               <div className="flex items-start justify-between">
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#eff3ef] text-forest">
                   <Icon size={23} strokeWidth={1.8} />
                 </span>
-                <span className="text-xs font-bold tracking-[0.15em] text-[#a3adb0]">
+                <span className="text-xs font-bold tracking-[0.15em] text-slate">
                   {number}
                 </span>
               </div>
@@ -298,7 +301,7 @@ export function LandingPage() {
             ].map(({ number, icon: Icon, title, text }) => (
               <div key={number} className="border-t-2 border-forest/20 pt-6">
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-[44px] font-extrabold tracking-[-0.06em] text-[#c7d3ca]">
+                  <span className="font-display text-[44px] font-extrabold tracking-[-0.06em] text-[#708c78]">
                     {number}
                   </span>
                   <Icon size={24} strokeWidth={1.7} className="text-forest" />
@@ -320,14 +323,14 @@ export function LandingPage() {
         className="mx-auto max-w-[1320px] scroll-mt-6 px-5 py-20 sm:px-8 lg:px-12 lg:py-28"
         aria-labelledby="approach-title"
       >
-        <div className="grid overflow-hidden rounded-[28px] bg-forest text-white lg:grid-cols-[0.93fr_1.07fr]">
-          <div className="p-8 sm:p-12 lg:p-16">
+        <div className="grid grid-cols-1 overflow-hidden rounded-[28px] bg-forest text-white lg:grid-cols-[0.93fr_1.07fr]">
+          <div className="min-w-0 p-[20px] [overflow-wrap:anywhere] sm:p-12 lg:p-16">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#d7c184]">
               The FORTIS approach
             </span>
             <h2
               id="approach-title"
-              className="font-display mt-6 max-w-sm text-[clamp(2.1rem,3.8vw,3.5rem)] font-extrabold leading-[1.14] tracking-[-0.055em]"
+              className="font-display mt-6 max-w-sm text-[clamp(2.1rem,3.8vw,3.5rem)] font-extrabold leading-[1.14] tracking-[-0.055em] [overflow-wrap:anywhere]"
             >
               Trust is built into the plan.
             </h2>
@@ -340,7 +343,7 @@ export function LandingPage() {
               Build My Plan <ArrowRight size={17} />
             </Link>
           </div>
-          <div className="border-t border-white/15 bg-[#2e5a46] p-8 sm:p-12 lg:border-l lg:border-t-0 lg:p-16">
+          <div className="min-w-0 border-t border-white/15 bg-[#2e5a46] p-[20px] [overflow-wrap:anywhere] sm:p-12 lg:border-l lg:border-t-0 lg:p-16">
             <ul className="space-y-5">
               {[
                 "Recommendations come from predefined, version-controlled preparedness rules.",

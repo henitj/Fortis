@@ -207,7 +207,7 @@ input[type="radio"] {
   .print-header svg + span {
     font-size: 14pt;
   }
-  .print-header [aria-label="FORTIS"] {
+  .print-header > div:first-child > span {
     color: #101820 !important;
   }
   .print-tagline {

@@ -45,7 +45,8 @@ lib/
   storage.ts            Versioned persistence and recovery
   official-resources.ts General verified government entry points and disclaimer
 tests/                  Unit and interaction tests (Vitest + Testing Library)
-scripts/browser-smoke.mjs Real Chromium flow, offline-in-page, responsive and PDF checks
+scripts/browser-smoke.mjs Real Chromium flow, offline-in-page and PDF checks
+scripts/responsive-audit.mjs Chromium viewport, text reflow and axe checks
 ```
 
 ### Personalization, without black-box AI
@@ -92,19 +93,21 @@ npm run start
 ### Quality checks
 
 ```bash
+npm run format:check
 npm run typecheck
 npm run lint
 npm run test
 npm run build
 ```
 
-`npm run test` runs unit tests for supply calculations, recommendations, scoring, and storage, plus wizard/dashboard/print interactions. To run the **real Chromium** smoke test, first start the app (`npm run dev` or `npm run start`) on port 3000, then in another terminal:
+`npm run test` runs unit tests for supply calculations, recommendations, scoring, and storage, plus wizard/dashboard/print interactions. To run the **real Chromium** smoke and responsive/accessibility tests, first start the app (`npm run dev` or `npm run start`) on port 3000, then in another terminal:
 
 ```bash
 npm run test:browser
+npm run test:responsive
 ```
 
-The browser test covers mobile/desktop routes, the wizard, profile regeneration, persistence after reload, loaded-page actions while offline, reset confirmation, the native print API, print-media visibility, and generation of an A4 PDF at `/tmp/fortis-browser-smoke.pdf`. If the server is on another port, set `BASE_URL` for **the test command only**. On minimal Linux containers without NSS/NSPR system libraries, the packaged Chromium binary requires those OS libraries; an optional `CHROMIUM_LIB_PATH` can point to directories containing them. **Neither setting is needed by the application or Vercel.** Print dialogs themselves are browser UI; headless Chromium verifies the native API call and the resulting PDF layout rather than displaying a graphical dialog.
+The browser smoke test covers mobile/desktop routes, the wizard, profile regeneration, persistence after reload, loaded-page actions while offline, reset confirmation, the native print API, print-media visibility, and generation of an A4 PDF at `/tmp/fortis-browser-smoke.pdf`. The responsive audit exercises the landing page, all five wizard steps, the dashboard and populated contact editor at **280–1920px** in Chromium; it checks text/control clipping (including within `overflow: hidden`), 150%/200% text-only scaling at 320px, mobile-menu hit targets, and automated axe-core WCAG 2.x/best-practice checks. Intentional scrolling navigation and the illustrative preview are excluded from text clipping checks. Automated checks cannot prove identical rendering on every browser engine or device. If the server is on another port, set `BASE_URL` for **the test commands only**. On minimal Linux containers without NSS/NSPR system libraries, the packaged Chromium binary requires those OS libraries; an optional `CHROMIUM_LIB_PATH` can point to directories containing them. **Neither setting is needed by the application or Vercel.** Print dialogs themselves are browser UI; headless Chromium verifies the native API call and the resulting PDF layout rather than displaying a graphical dialog.
 
 ## Print / Save as PDF
 
@@ -133,3 +136,4 @@ No deployment is implied by these instructions; deployment must be performed in 
 - General U.S. resource links are not a substitute for verified local authorities, current instructions, or individual professional advice. FORTIS has no alerts, map, shelter feed, or live hazard data.
 - Simplified supply starting points and a checklist percentage cannot establish personal safety, nutritional sufficiency, or specific medical needs.
 - PDF page breaks and browser print controls vary; check preview, especially on mobile.
+- Automated responsive checks use Chromium, not a device lab for Safari/Firefox or every browser version. `npm audit --omit=dev` reports zero advisories; the full audit currently flags five high-severity dependency entries stemming from a `braces` advisory in the development-only Next.js ESLint plugin → `fast-glob` → `micromatch` → `braces` dependency chain. The affected `braces` release has no published patched version in the current major line; revisit upstream updates before using the tooling on untrusted input.

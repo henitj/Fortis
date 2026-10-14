@@ -42,10 +42,11 @@ export function FortisLogo({
   return (
     <span
       className={`inline-flex items-center gap-2.5 ${light ? "text-white" : "text-ink"}`}
-      aria-label="FORTIS"
+      role={compact ? "img" : undefined}
+      aria-label={compact ? "FORTIS" : undefined}
     >
       <FortisMark
-        className={`h-9 w-8 shrink-0 ${light ? "text-gold" : "text-forest"}`}
+        className={`h-[36px] w-[32px] shrink-0 ${light ? "text-gold" : "text-forest"}`}
       />
       {!compact && (
         <span className="font-display text-[20px] font-extrabold tracking-[0.19em] leading-none">

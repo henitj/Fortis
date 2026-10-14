@@ -12,7 +12,7 @@ export function ReadinessCard({
   const circumference = 2 * Math.PI * 47;
   return (
     <section
-      className="relative overflow-hidden rounded-[22px] bg-ink p-6 text-white sm:p-8"
+      className="relative overflow-hidden rounded-[22px] bg-ink p-[20px] text-white sm:p-8"
       aria-labelledby="readiness-title"
     >
       <div
@@ -24,10 +24,10 @@ export function ReadinessCard({
           <CircleDashed size={16} className="text-gold" /> Readiness overview
         </div>
         <div className="mt-5 flex flex-wrap items-center justify-between gap-5">
-          <div>
+          <div className="min-w-0">
             <h2
               id="readiness-title"
-              className="font-display max-w-[275px] text-2xl font-extrabold leading-[1.2] tracking-[-0.04em]"
+              className="font-display max-w-[275px] text-2xl font-extrabold leading-[1.2] tracking-[-0.04em] [overflow-wrap:anywhere]"
             >
               Preparedness checklist completion
             </h2>

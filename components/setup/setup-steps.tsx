@@ -187,7 +187,7 @@ function CheckRow({
         checked={checked}
         onChange={(event) => onChange(event.target.checked)}
       />
-      <span>
+      <span className="min-w-0 [overflow-wrap:anywhere]">
         <span className="block text-sm font-bold text-ink">{label}</span>
         <span className="mt-1 block text-xs leading-5 text-slate">{hint}</span>
       </span>
@@ -297,7 +297,7 @@ export function HazardsStep({ draft, update }: StepProps) {
             <label
               key={hazard.id}
               htmlFor={`hazard-${hazard.id}`}
-              className={`relative flex min-h-[105px] cursor-pointer gap-4 rounded-xl border p-4 transition-colors hover:border-forest/50 ${selected ? "border-forest bg-[#f2f7f2]" : "border-line bg-white"}`}
+              className={`relative flex min-h-[105px] cursor-pointer flex-wrap gap-4 rounded-xl border p-4 transition-colors hover:border-forest/50 ${selected ? "border-forest bg-[#f2f7f2]" : "border-line bg-white"}`}
             >
               <input
                 id={`hazard-${hazard.id}`}
@@ -311,7 +311,7 @@ export function HazardsStep({ draft, update }: StepProps) {
               >
                 <Icon size={21} strokeWidth={1.8} />
               </span>
-              <span className="pr-3">
+              <span className="min-w-[120px] flex-1 pr-3 [overflow-wrap:anywhere]">
                 <span className="block text-sm font-bold text-ink">
                   {hazard.label}
                 </span>
@@ -508,9 +508,9 @@ export function ReviewStep({
       {sections.map((section) => (
         <section
           key={section.title}
-          className="flex items-start justify-between gap-4 rounded-xl border border-line bg-white p-4 sm:p-5"
+          className="flex flex-wrap items-start justify-between gap-4 rounded-xl border border-line bg-white p-4 sm:p-5"
         >
-          <div>
+          <div className="min-w-[120px] flex-1 [overflow-wrap:anywhere]">
             <h3 className="text-xs font-bold uppercase tracking-[0.12em] text-forest">
               {section.title}
             </h3>

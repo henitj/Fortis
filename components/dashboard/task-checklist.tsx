@@ -72,20 +72,20 @@ export function TaskChecklist({
           to do
         </span>
       </div>
-      <div className="card overflow-hidden">
+      <div className="card overflow-hidden [overflow-wrap:anywhere]">
         <div className="border-b border-line bg-[#fcfcfa] p-4 sm:p-5">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-xs font-bold text-slate">
               <ListFilter size={16} /> Filter by status
             </div>
             <label
-              className="flex items-center gap-2 text-xs font-semibold text-slate"
+              className="flex w-full min-w-0 flex-wrap items-center gap-2 text-xs font-semibold text-slate sm:w-auto"
               htmlFor="category-filter"
             >
               Category{" "}
               <select
                 id="category-filter"
-                className="min-h-10 max-w-[210px] rounded-lg border border-[#cbd1d2] bg-white px-3 text-xs font-semibold text-ink"
+                className="min-h-10 w-full min-w-0 max-w-full rounded-lg border border-[#cbd1d2] bg-white px-3 text-xs font-semibold text-ink sm:w-auto sm:max-w-[210px]"
                 value={category}
                 onChange={(event) =>
                   setCategory(event.target.value as TaskCategory | "all")
@@ -131,12 +131,12 @@ export function TaskChecklist({
             if (!items.length) return null;
             return (
               <section key={group.id} aria-labelledby={`tasks-${group.id}`}>
-                <div className="flex items-center justify-between border-b border-line bg-[#f7f8f5] px-5 py-3.5 sm:px-6">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line bg-[#f7f8f5] px-5 py-3.5 sm:px-6">
                   <h3
                     id={`tasks-${group.id}`}
                     className="font-display text-sm font-extrabold tracking-[-0.02em]"
                   >
-                    {group.label}
+                    {group.label} actions
                   </h3>
                   <span className="text-[11px] font-semibold text-slate">
                     {items.length} {items.length === 1 ? "action" : "actions"}

@@ -42,7 +42,7 @@ export function CommunicationPlanEditor({ value, onChange }: Props) {
         </p>
         <h2
           id="communication-title"
-          className="font-display mt-2 text-2xl font-extrabold tracking-[-0.045em] sm:text-[30px]"
+          className="font-display mt-2 text-2xl font-extrabold tracking-[-0.045em] [overflow-wrap:anywhere] sm:text-[30px]"
         >
           Your communication plan.
         </h2>
@@ -51,10 +51,10 @@ export function CommunicationPlanEditor({ value, onChange }: Props) {
           blank if it doesn&apos;t apply.
         </p>
       </div>
-      <div className="space-y-4">
-        <div className="card p-5 sm:p-7">
+      <div className="space-y-4 [overflow-wrap:anywhere]">
+        <div className="card min-w-0 p-5 sm:p-7">
           <div className="flex flex-wrap items-start justify-between gap-3">
-            <div>
+            <div className="min-w-0">
               <h3 className="font-display text-base font-extrabold">
                 Household contacts
               </h3>
@@ -66,6 +66,7 @@ export function CommunicationPlanEditor({ value, onChange }: Props) {
             <Button
               variant="outline"
               size="small"
+              className="w-full max-w-full px-[12px] sm:w-auto sm:px-4"
               onClick={addContact}
               disabled={value.contacts.length >= 15}
             >
@@ -82,7 +83,7 @@ export function CommunicationPlanEditor({ value, onChange }: Props) {
               {value.contacts.map((contact, index) => (
                 <div
                   key={contact.id}
-                  className="grid gap-3 rounded-xl border border-line bg-[#fcfcfb] p-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end"
+                  className="grid grid-cols-1 gap-3 rounded-xl border border-line bg-[#fcfcfb] p-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end"
                 >
                   <div>
                     <label
