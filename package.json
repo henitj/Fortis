@@ -1,0 +1,47 @@
+{
+  "name": "fortis",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --hostname 0.0.0.0",
+    "build": "next build",
+    "start": "next start --hostname 0.0.0.0",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:browser": "node scripts/browser-smoke.mjs",
+    "test:responsive": "node scripts/responsive-audit.mjs",
+    "format:check": "prettier --check app components lib scripts tests README.md next.config.ts vitest.config.ts tsconfig.json package.json postcss.config.mjs eslint.config.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.2.8",
+    "@fontsource-variable/manrope": "^5.2.8",
+    "lucide-react": "^1.56.0",
+    "next": "^16.4.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "^153.0.0",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@testing-library/jest-dom": "^6.9.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "axe-core": "^4.14.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.4.0",
+    "jsdom": "^26.1.0",
+    "playwright-core": "^1.64.0",
+    "postcss": "^8.5.0",
+    "prettier": "^3.9.10",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.0",
+    "vitest": "^5.0.4"
+  }
+}
